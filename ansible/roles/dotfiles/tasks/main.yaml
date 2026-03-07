@@ -1,0 +1,40 @@
+# roles/dotfiles/tasks/main.yml
+- name: Ensure config dir
+  file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+
+- name: Install zshrc
+  copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+
+- name: Install aliases
+  copy:
+    src: aliases.zsh
+    dest: "{{ ansible_env.HOME }}/.aliases.zsh"
+
+- name: Install env
+  copy:
+    src: env.zsh
+    dest: "{{ ansible_env.HOME }}/.env.zsh"
+
+- name: Install nvim
+  copy:
+    src: nvim.zsh
+    dest: "{{ ansible_env.HOME }}/.nvim.zsh"
+	
+- name: Install p10k
+  copy:
+    src: p10k.zsh
+    dest: "{{ ansible_env.HOME }}/.p10k.zsh"
+
+- name: Install vim config
+  copy:
+    src: vimrc
+    dest: "{{ ansible_env.HOME }}/.vimrc"
+
+- name: Install kitty config
+  copy:
+    src: kitty.conf
+    dest: "{{ ansible_env.HOME }}/.config/kitty/kitty.conf"
