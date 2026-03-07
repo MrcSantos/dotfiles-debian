@@ -14,8 +14,7 @@
     - mint_themes
     - others
 
-#- hosts: localhost
-#  become: false
-#  roles:
-#    - dotfiles
-
+- hosts: localhost
+  become: false
+  roles:
+    - dotfiles
