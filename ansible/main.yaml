@@ -46,8 +46,8 @@
     - name: choice_upgrade_distro
       prompt: "Do you want to upgrade your distro? [y/N]"
       private: false  
-      become: true
-
+  
+  become: true
   roles:
     - base
     - fonts
