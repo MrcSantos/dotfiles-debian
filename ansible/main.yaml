@@ -58,6 +58,7 @@
     - others
 
 - hosts: localhost
+  tags: dotfiles
   become: false
   roles:
     - dotfiles
