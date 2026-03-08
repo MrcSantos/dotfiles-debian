@@ -9,13 +9,14 @@
   register: zsh_path
   changed_when: false
 
-- name: Change default shell to zsh
-  become: true
-  shell: "chsh -s $(which zsh) {{ current_user.stdout }}"
-
 - name: Install oh-my-zsh
   become: true
-  ansible.builtin.command: echo 'y' | su - {{ current_user.stdout }} -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  become_user: "{{ current_user.stdout }}"
+  ansible.builtin.shell: |
+    RUNZSH=no CHSH=no \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    creates: "{{ ansible_env.HOME }}/.oh-my-zsh"
 
 - name: Install zsh plugins
   git:
@@ -26,4 +27,6 @@
     - { repo: "https://github.com/zsh-users/zsh-autosuggestions.git", path: "plugins/zsh-autosuggestions" }
     - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", path: "plugins/zsh-syntax-highlighting" }
 
-
+- name: Change default shell to zsh
+  become: true
+  shell: "chsh -s $(which zsh) {{ current_user.stdout }}"
