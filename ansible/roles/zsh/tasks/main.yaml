@@ -23,7 +23,7 @@
   become_user: "{{ current_user.stdout }}"
   git:
     repo: "{{ item.repo }}"
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/{{ item.path }}"
+    dest: "~/.oh-my-zsh/custom/{{ item.path }}"
   loop:
     - { repo: "https://github.com/romkatv/powerlevel10k.git", path: "themes/powerlevel10k" }
     - { repo: "https://github.com/zsh-users/zsh-autosuggestions.git", path: "plugins/zsh-autosuggestions" }
