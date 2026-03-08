@@ -23,7 +23,7 @@
   copy:
     src: nvim.zsh
     dest: "{{ ansible_env.HOME }}/.nvim.zsh"
-	
+
 - name: Install p10k
   copy:
     src: p10k.zsh
