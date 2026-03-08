@@ -1,4 +1,9 @@
 - hosts: localhost
+  vars_prompt:
+    - name: choice_upgrade_distro
+      prompt: "Do you want to upgrade your distro? [y/N]"
+      private: false
+      
   pre_tasks:
     - name: Register current user (workaround to change default shell)
       shell: whoami
@@ -40,12 +45,9 @@
         - "                         ╚════██║ ██║ ██╔══██╗                         "
         - "                         ███████║ ██║ ██║  ██║                         "
         - "                         ╚══════╝ ╚═╝ ╚═╝  ╚═╝                         "
-        
-  vars_prompt:
-    - name: choice_upgrade_distro
-      prompt: "Do you want to upgrade your distro? [y/N]"
-      private: false
 
+- hosts: localhost
+  pre_tasks:
   become: true
   roles:
     - base
