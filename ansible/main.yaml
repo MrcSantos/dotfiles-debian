@@ -45,7 +45,8 @@
   vars_prompt:
     - name: choice_upgrade_distro
       prompt: "Do you want to upgrade your distro? [y/N]"
-      private: false  become: true
+      private: false  
+      become: true
 
   roles:
     - base
