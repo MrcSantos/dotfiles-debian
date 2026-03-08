@@ -29,6 +29,11 @@
     src: p10k.zsh
     dest: "{{ ansible_env.HOME }}/.p10k.zsh"
 
+- name: Install tmux
+  copy:
+    src: tmux.conf
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+
 - name: Install vim config
   copy:
     src: vimrc
