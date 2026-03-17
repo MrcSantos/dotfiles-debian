@@ -1,6 +1,14 @@
 # Enter tmux at start of prompt
-if [[ -z ${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X} ]]; then
-  exec tmux
+# Only run if not already inside tmux
+if [[ -z "$TMUX" ]]; then
+  # Check if any tmux sessions exist
+  if tmux has-session 2>/dev/null; then
+    # Attach to the existing session
+    exec tmux attach-session
+  else
+    # No session exists, create a new one
+    exec tmux
+  fi
 fi
 
 # Needed for powerlevel instant prompt
