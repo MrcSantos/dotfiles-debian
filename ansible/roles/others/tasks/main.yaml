@@ -1,8 +1,0 @@
-- name: Install other packages
-  become: true
-  ansible.builtin.apt:
-    name:
-      - kitty
-      - lsd
-      - htop
-      - fastfetch
