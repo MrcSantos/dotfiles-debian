@@ -1,2 +1,2 @@
-alias v="nvim"
-alias n="nvim"
+bindkey '^@^@' edit-command-line
+alias NNN="nnn -deHx"
