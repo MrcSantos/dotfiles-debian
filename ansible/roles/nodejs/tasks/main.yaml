@@ -15,6 +15,6 @@
     . "$NVM_DIR/bash_completion"
     nvm install --lts
   environment:
-    NVM_DIR: "{{ ansible_env.HOME }}/.nvm"
+    NVM_DIR: "~/.nvm"
   args:
     executable: /bin/bash
