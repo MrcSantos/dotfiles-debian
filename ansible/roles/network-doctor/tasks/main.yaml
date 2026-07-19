@@ -2,7 +2,7 @@
   become: true
   become_user: "{{ current_user.stdout }}"
   stat:
-    path: "{{ ansible_env.HOME }}/go/bin/network-doctor"
+    path: "~/go/bin/network-doctor"
   register: network_doctor
 
 - name: Install network-doctor
