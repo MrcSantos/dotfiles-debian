@@ -9,5 +9,3 @@
   args:
     executable: /bin/bash
     creates: "~/.nvm/nvm.sh"
-  environment:
-    NVM_DIR: "~/.nvm"
