@@ -1,0 +1,5 @@
+- name: Install duf
+  ansible.builtin.apt:
+    name: duf
+    state: present
+  become: true
