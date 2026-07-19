@@ -8,7 +8,11 @@
   vars_prompt:
     - name: choice_upgrade_distro
       prompt: "Do you want to upgrade your distro? [y/N]"
-      private: false  
+      private: false
+
+- hosts: all
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"
   
   become: true
   roles:
