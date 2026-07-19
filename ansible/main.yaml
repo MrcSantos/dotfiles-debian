@@ -23,7 +23,7 @@
     - kitty
     - htop
     - lsd
-    - duf
+    - ncdu
     - fastfetch
 
 - hosts: localhost
