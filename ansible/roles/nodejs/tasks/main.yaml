@@ -3,9 +3,15 @@
   become_user: "{{ current_user.stdout }}"
   ansible.builtin.shell: |
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
+  args:
+    executable: /bin/bash
+
+- name: Install NVM and latest LTS Node.js
+  become: true
+  become_user: "{{ current_user.stdout }}"
+  ansible.builtin.shell: |
     . "$NVM_DIR/nvm.sh"
     . "$NVM_DIR/bash_completion"
     nvm install --lts
   args:
     executable: /bin/bash
-    creates: "~/.nvm/nvm.sh"
