@@ -9,6 +9,13 @@
   register: zsh_path
   changed_when: false
 
+- name: Remove existing oh-my-zsh installation
+  become: true
+  become_user: "{{ current_user.stdout }}"
+  ansible.builtin.file:
+    path: "/home/{{ current_user.stdout }}/.oh-my-zsh"
+    state: absent
+
 - name: Install oh-my-zsh
   become: true
   become_user: "{{ current_user.stdout }}"
