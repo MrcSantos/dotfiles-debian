@@ -15,8 +15,6 @@
     - base
     - fonts
     - golang
-    - nodejs
-    - network-doctor
     - nnn
     - zsh
     - mint_themes
@@ -24,6 +22,7 @@
     - htop
     - lsd
     - ncdu
+    - network-doctor
     - fastfetch
 
 - hosts: localhost
