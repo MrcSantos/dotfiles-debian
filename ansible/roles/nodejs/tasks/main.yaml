@@ -1,9 +1,11 @@
-- name: Install latest LTS Node.js
+- name: Install NVM and latest LTS Node.js
   ansible.builtin.shell: |
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
     . "$NVM_DIR/nvm.sh"
     . "$NVM_DIR/bash_completion"
     nvm install --lts
   args:
     executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
   environment:
     NVM_DIR: "{{ ansible_env.HOME }}/.nvm"
