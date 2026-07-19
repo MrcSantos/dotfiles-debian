@@ -15,7 +15,7 @@
     - base
     - fonts
     - golang
-    - network_doctor
+    - network-doctor
     - nnn
     - zsh
     - mint_themes
