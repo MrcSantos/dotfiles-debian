@@ -1,5 +1,5 @@
-- name: Install duf
+- name: Install ncdu
   ansible.builtin.apt:
-    name: duf
+    name: ncdu
     state: present
   become: true
