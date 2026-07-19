@@ -1,0 +1,11 @@
+- name: Check if network-doctor is installed
+  become: true
+  become_user: "{{ current_user.stdout }}"
+  stat:
+    path: "{{ ansible_env.HOME }}/go/bin/network-doctor"
+  register: network_doctor
+
+- name: Install network-doctor
+  command: >
+    go install github.com/heymaikol/network-doctor@latest
+  when: not network_doctor.stat.exists
