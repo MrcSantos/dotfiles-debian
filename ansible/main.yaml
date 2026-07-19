@@ -3,6 +3,8 @@
     - name: Register current user
       shell: whoami
       register: current_user
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"
 
 - hosts: localhost
   vars_prompt:
@@ -10,9 +12,7 @@
       prompt: "Do you want to upgrade your distro? [y/N]"
       private: false
 
-- hosts: all
-  environment:
-    PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"
+
   
   become: true
   roles:
