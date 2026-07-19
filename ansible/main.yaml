@@ -15,6 +15,7 @@
     - base
     - fonts
     - golang
+    - nodejs
     - network-doctor
     - nnn
     - zsh
