@@ -8,6 +8,8 @@
 - name: Install network-doctor
   become: true
   become_user: "{{ current_user.stdout }}"
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/go/bin"
   command: >
     go install github.com/heymaikol/network-doctor@latest
   when: not network_doctor.stat.exists
