@@ -1,0 +1,15 @@
+- name: Download Go
+  get_url:
+    url: "https://go.dev/dl/go1.26.5.linux-amd64.tar.gz"
+    dest: "/tmp/go1.26.5.linux-amd64.tar.gz"
+
+- name: Remove old Go
+  file:
+    path: /usr/local/go
+    state: absent
+
+- name: Extract Go
+  unarchive:
+    src: "/tmp/go1.26.5.linux-amd64.tar.gz"
+    dest: /usr/local
+    remote_src: yes
