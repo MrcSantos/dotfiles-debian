@@ -9,9 +9,12 @@
 - name: Install NVM and latest LTS Node.js
   become: true
   become_user: "{{ current_user.stdout }}"
+  
   ansible.builtin.shell: |
     . "$NVM_DIR/nvm.sh"
     . "$NVM_DIR/bash_completion"
     nvm install --lts
+  environment:
+    NVM_DIR: "{{ ansible_env.HOME }}/.nvm"
   args:
     executable: /bin/bash
